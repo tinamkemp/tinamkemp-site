@@ -91,17 +91,23 @@ lines) and the rest of the file is left alone.
 - `src/contact/index.md` — Contact
 - `src/consulting/index.md` — Consulting (in main nav, also linked from About)
 
+## How changes get made
+
+- **Structural changes** (templates, config, nav, layout): open a GitHub issue, branch off it, commit, open a PR referencing the issue ("Fixes #N"), review/merge on GitHub. Branches auto-delete on merge.
+- **Content/copy changes** (post text, page copy): edit the Markdown file directly in GitHub.com's web editor and commit straight to `main` (or via a lightweight PR) — no issue required.
+
+Either path lands on `main`, which triggers the deploy pipeline below.
+
 ## Deploying to DreamHost
 
-1. Run `npx @11ty/eleventy` to generate the `_site/` folder.
-2. Connect to your DreamHost server via SFTP (DreamHost panel → "SFTP Users" for credentials).
-3. Upload the **contents** of `_site/` (not the folder itself) into your
-   domain's web directory (usually `tinamkemp.com/` or similar — check the
-   DreamHost panel under "Manage Websites").
-4. Visit tinamkemp.com to confirm it's live.
+Deployment is automated via GitHub Actions (`.github/workflows/deploy.yml`):
 
-Each time you make changes: rebuild with `npx @11ty/eleventy`, then re-upload
-the changed files from `_site/`.
+1. Any push to `main` triggers a build (`npx @11ty/eleventy` runs in CI).
+2. If the build succeeds, the deploy step waits for a one-click manual approval — check the repo's **Actions** tab for the pending run, or **Settings → Environments → production**.
+3. Once approved, the built site is rsynced to DreamHost automatically over SSH.
+4. Visit tinamkemp.com afterward to confirm it's live.
+
+There is no manual build/upload step anymore — if a deploy doesn't show up as "waiting" after a push to `main`, check the Actions tab for a failed build first.
 
 ## Brand reference (for future edits)
 
