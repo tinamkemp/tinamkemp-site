@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}{% if title != "Tina M. Kemp" %} — Tina M. Kemp{% endif %}</title>
+  {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+
+  <!-- Brand fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <p class="site-title"><a href="/">Tina M. Kemp</a></p>
+      <p class="site-tagline">{{ tagline | default("A Place to Put Things") }}</p>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a></li>
+          <li><a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a></li>
+          <li><a href="/consulting/" {% if page.url == "/consulting/" in page.url %}aria-current="page"{% endif %}>Consulting</a></li>
+          <li><a href="/contact/" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrapper">
+      {{ content | safe }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <p>&copy; {{ currentYear }} Tina M. Kemp</p>
+    </div>
+  </footer>
+</body>
+</html>
