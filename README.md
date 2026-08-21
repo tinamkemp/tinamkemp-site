@@ -9,7 +9,7 @@ Tina M. Kemp brand kit (slate blue / Cormorant Garamond + Jost).
 - Entry point: `.eleventy.js` is the build config — it sets `src/` as input, `_site/` as output, defines the `posts` collection, the `readableDate` filter, and the `currentYear` global.
 - Homepage source: `src/index.md`, rendered through the shared layout `src/_includes/base.njk` (header/nav/footer shell).
 - Content model: each route is a Markdown file with YAML front matter (`src/about/index.md`, `src/contact/index.md`, `src/consulting/index.md`), plus a `src/writing/index.md` index that lists the `src/posts/*.md` writing collection.
-- Output/deploy: `npx @11ty/eleventy` builds everything into `_site/`, which is manually uploaded via SFTP to DreamHost — no CI/CD.
+- Output/deploy: fully automated via GitHub Actions — pushing to `main` builds the site with `npx @11ty/eleventy`, then deploys it to DreamHost over SSH after a single manual approval click. Dependabot keeps the pipeline's own dependencies (npm, github-actions) current automatically.
 
 ## What this is
 
