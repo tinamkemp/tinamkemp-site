@@ -8,7 +8,7 @@ Tina M. Kemp brand kit (slate blue / Cormorant Garamond + Jost).
 - A static personal site for tinamkemp.com, built with Eleventy (11ty) — no database, no CMS, no server code; Markdown files compile straight to HTML.
 - Entry point: `.eleventy.js` is the build config — it sets `src/` as input, `_site/` as output, defines the `posts` collection, the `readableDate` filter, and the `currentYear` global.
 - Homepage source: `src/index.md`, rendered through the shared layout `src/_includes/base.njk` (header/nav/footer shell).
-- Content model: each route is a Markdown file with YAML front matter (`src/about/index.md`, `src/contact/index.md`, `src/consulting/index.md`), plus an intended `src/posts/*.md` + `src/writing/index.md` writing section (currently missing from source, though old built output for it still sits in `_site/`).
+- Content model: each route is a Markdown file with YAML front matter (`src/about/index.md`, `src/contact/index.md`, `src/consulting/index.md`), plus a `src/writing/index.md` index that lists the `src/posts/*.md` writing collection.
 - Output/deploy: `npx @11ty/eleventy` builds everything into `_site/`, which is manually uploaded via SFTP to DreamHost — no CI/CD.
 
 ## What this is
@@ -27,9 +27,9 @@ src/
   posts/           — writing entries, one .md file per post
   index.md         — homepage
   about/index.md   — About page
-  writing/index.md — Writing index (auto-lists posts)
+  writing/index.md — Writing index (auto-lists posts; not in main nav, reachable at /writing/)
   contact/index.md — Contact page
-  consulting/index.md — Consulting page (linked from About, not in nav)
+  consulting/index.md — Consulting page (in main nav, also linked from About)
 .eleventy.js       — Eleventy configuration
 ```
 
@@ -87,9 +87,9 @@ lines) and the rest of the file is left alone.
 
 - `src/index.md` — homepage
 - `src/about/index.md` — About
-- `src/writing/index.md` — Writing index (intro text only — posts are listed automatically)
+- `src/writing/index.md` — Writing index (intro text only — posts are listed automatically; not in main nav, reachable at /writing/)
 - `src/contact/index.md` — Contact
-- `src/consulting/index.md` — Consulting (not in main nav, linked from About)
+- `src/consulting/index.md` — Consulting (in main nav, also linked from About)
 
 ## Deploying to DreamHost
 
