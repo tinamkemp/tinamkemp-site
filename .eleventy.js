@@ -2,6 +2,7 @@ module.exports = function (eleventyConfig) {
   // Copy CSS and any static assets straight through to the output folder
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/favicon.svg");
 
   // Make the current year available to all templates (for footer copyright)
   eleventyConfig.addGlobalData("currentYear", () => new Date().getFullYear());
