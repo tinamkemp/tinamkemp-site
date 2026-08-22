@@ -14,5 +14,3 @@ title: Tina M. Kemp
   <li><a href=/about/>Where else to find me </a></li>
   </ul>
 </p>
-
-<p> AI Disclosure: This site was built and is maintained in part by robots; all words are my own except where noted. </p>
