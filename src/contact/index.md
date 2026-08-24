@@ -9,6 +9,8 @@ title: Contact
   
   - <a href="mailto:hello@tinamkemp.com">Email</a> Best for project proposals, random thoughts, introductions, and wild ideas.
 
+  - <a href="https://github.com/tinamkemp/">Github</a> Development projects I'm working on.
+
   - <a href="https://tinamkemp.substack.com/">Substack: Study, Act, Repeat</a> My writing on topics of professional interest.
   
   - <a href="https://categoryerrors.substack.com/">Substack: Category Errors</a> Something I mistook for a blog.
